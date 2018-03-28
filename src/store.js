@@ -1,8 +1,13 @@
 import { createStore } from "redux";
+
 import reducers from "./reducers";
 
+const questions = require("./questions.json");
+
 const initalData = {
-  questions: [1, 2, 3, 4]
+  index: 0,
+  answers: {},
+  questions
 };
 
 const store = createStore(reducers, initalData);

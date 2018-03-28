@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "type": "input",
+    "options": [],
+    "title": "Anan kim"
+  },
+  {
+    "id": 1,
+    "type": "dropdown",
+    "options": ["Turkey", "England"],
+    "title": "Baban kim"
+  },
+  {
+    "id": 2,
+    "type": "radio",
+    "options": ["yes", "no"],
+    "title": "Nerelisin"
+  }
+]
