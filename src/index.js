@@ -1,4 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
-ReactDOM.render(<h1>Hello, world!</h1>, document.getElementById("root"));
+import ProgressBar from "./containers/ProgressBar";
+import store from "./store";
+
+ReactDOM.render(
+  <Provider store={store}>
+    <ProgressBar />
+  </Provider>,
+  document.getElementById("root")
+);
