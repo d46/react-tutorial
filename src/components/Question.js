@@ -19,12 +19,22 @@ class Question extends Component {
 		this.setState({
 			value: value
 		});
-		console.log(value);
-		console.log(this.props);
+		this.props.setAnswer({
+			id: this.props.question.id,
+			value: value
+		});
 	}
 
+  nextQuestion() {
+    
+  }
+
+  prevQuestion() {
+
+  }
+
 	render() {
-		const { question } = this.props;
+		const { question, firstId, lastId } = this.props;
 		const AnswerType = this.getAnswerType(question.type);
 
 		return (
@@ -35,6 +45,8 @@ class Question extends Component {
 					value={this.state.value}
 					setAnswer={this.setAnswer}
 				/>
+				{firstId !== question.id && <button onClick={this.prevQuestion}>Prev</button>}
+				{lastId !== question.id && <button onClick={this.nextQuestion}>Next</button>}
 			</div>
 		);
 	}
