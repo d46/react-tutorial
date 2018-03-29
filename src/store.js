@@ -5,9 +5,14 @@ import reducers from "./reducers";
 const questions = require("./questions.json");
 
 const initalData = {
-  index: 0,
-  answers: {},
-  questions
+	currentId: 0,
+	answers: [
+		{
+			id: 0,
+			value: "Kim?"
+		}
+	],
+	questions
 };
 
 const store = createStore(reducers, initalData);

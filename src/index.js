@@ -9,8 +9,10 @@ import store from "./store";
 
 ReactDOM.render(
   <Provider store={store}>
-    <ProgressBar />
-    <Question />
+    <div>
+      <ProgressBar />
+      <Question />
+    </div>
   </Provider>,
   document.getElementById("root")
 );
