@@ -7,6 +7,8 @@ class Question extends Component {
 		this.state = {
 			value: props.answer.value || ""
 		};
+
+		this.onHandleChange = this.onHandleChange.bind(this);
 		this.setAnswer = this.setAnswer.bind(this);
 	}
 
@@ -14,13 +16,16 @@ class Question extends Component {
 		return Answers[type];
 	}
 
-	setAnswer(e) {
-		const value = e.target.value;
-		this.setState({
-			value: value
-		});
+	setAnswer() {
 		this.props.setAnswer({
 			id: this.props.question.id,
+			value: this.state.value
+		});
+	}
+
+	onHandleChange(e){
+		const value = e.target.value;
+		this.setState({
 			value: value
 		});
 	}
@@ -33,15 +38,16 @@ class Question extends Component {
 			<div>
 				<h1>{question.title}</h1>
 				<AnswerType
+					id={question.id}
 					options={question.options}
 					value={this.state.value}
-					setAnswer={this.setAnswer}
+					onHandleChange={this.onHandleChange}
 				/>
 				{firstId !== question.id && (
-					<button onClick={this.props.prevQuestion}>Prev</button>
+					<button onClick={() => { this.props.prevQuestion(); this.setAnswer()}}>Prev</button>
 				)}
 				{lastId !== question.id && (
-					<button onClick={this.props.nextQuestion}>Next</button>
+					<button onClick={() => { this.props.nextQuestion(); this.setAnswer()}}>Next</button>
 				)}
 			</div>
 		);

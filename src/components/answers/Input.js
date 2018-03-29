@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 class Input extends Component {
 	render() {
-		const { setAnswer, value } = this.props;
-		return <input value={value} onChange={setAnswer} />;
+		const { onHandleChange, value } = this.props;
+		return <input value={value} onChange={onHandleChange} />;
 	}
 }
 

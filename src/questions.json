@@ -3,18 +3,18 @@
     "id": 0,
     "type": "input",
     "options": [],
-    "title": "Anan kim"
+    "title": "What is your name?"
   },
   {
     "id": 1,
     "type": "dropdown",
-    "options": ["Turkey", "England"],
-    "title": "Baban kim"
+    "options": ["Germany", "Turkey", "France", "England", "Spain", "USA", "Russia", "China"],
+    "title": "Where are you from?"
   },
   {
     "id": 2,
     "type": "radio",
-    "options": ["yes", "no"],
-    "title": "Nerelisin"
+    "options": ["Male", "Female"],
+    "title": "What is your gender?"
   }
 ]

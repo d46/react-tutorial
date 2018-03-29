@@ -6,8 +6,8 @@ import Question from "../components/Question";
 const mapStateToProps = state => ({
 	question: state.questions.find(i => i.id === state.currentId),
 	answer: state.answers.find(i => i.id === state.currentId) || {},
-	lastId: state.questions[state.questions.length - 1].id,
-	firstId: state.questions[0].id
+	lastId: [...state.questions].pop().id,
+	firstId: [...state.questions].shift().id
 });
 
 const mapDispatchToProps = {
