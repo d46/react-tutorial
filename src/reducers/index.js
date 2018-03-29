@@ -9,25 +9,22 @@ const reducers = (state, action) => {
 				}
 				return answer;
 			});
-			state = Object.assign({}, state, {
-				answers: answers
-			});
+			state = { ...state, answers };
+
 			break;
 		case SET_PREV_ID:
-			let indexOfCurrP = state.questions.findIndex(i => {
-				return i.id === state.currentId;
-			});
-			state = Object.assign({}, state, {
-				currentId: state.questions[--indexOfCurrP].id
-			});
+			let indexOfCurrP = state.questions.findIndex(
+				i => i.id === state.currentId
+			);
+			state = { ...state, currentId: state.questions[--indexOfCurrP].id };
+
 			break;
 		case SET_NEXT_ID:
-			let indexOfCurrN = state.questions.findIndex(i => {
-				return i.id === state.currentId;
-			});
-			state = Object.assign({}, state, {
-				currentId: state.questions[++indexOfCurrN].id
-			});
+			let indexOfCurrN = state.questions.findIndex(
+				i => i.id === state.currentId
+			);
+			state = { ...state, currentId: state.questions[++indexOfCurrN].id };
+
 			break;
 	}
 

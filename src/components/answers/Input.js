@@ -1,10 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Input extends Component {
-	render() {
-		const { onHandleChange, value } = this.props;
-		return <input value={value} onChange={onHandleChange} />;
-	}
-}
+const Input = props => {
+	return <input value={props.value} onChange={props.onHandleChange} />;
+};
 
 export default Input;
