@@ -1,8 +1,6 @@
-import { SET_ANSWER, SET_CURRENT_ID } from "../actions";
+import { SET_ANSWER, SET_PREV_ID, SET_NEXT_ID } from "../actions";
 
 const reducers = (state, action) => {
-	console.log(state);
-
 	switch (action.type) {
 		case SET_ANSWER:
 			const answers = state.answers.map(answer => {
@@ -11,10 +9,25 @@ const reducers = (state, action) => {
 				}
 				return answer;
 			});
-			state.answers = answers;
+			state = Object.assign({}, state, {
+				answers: answers
+			});
 			break;
-		case SET_CURRENT_ID:
-			state.currentId = action.id;
+		case SET_PREV_ID:
+			let indexOfCurrP = state.questions.findIndex(i => {
+				return i.id === state.currentId;
+			});
+			state = Object.assign({}, state, {
+				currentId: state.questions[--indexOfCurrP].id
+			});
+			break;
+		case SET_NEXT_ID:
+			let indexOfCurrN = state.questions.findIndex(i => {
+				return i.id === state.currentId;
+			});
+			state = Object.assign({}, state, {
+				currentId: state.questions[++indexOfCurrN].id
+			});
 			break;
 	}
 

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { SET_ANSWER } from "../actions";
+import { SET_ANSWER, SET_NEXT_ID, SET_PREV_ID } from "../actions";
 
 import Question from "../components/Question";
 
@@ -14,11 +14,13 @@ const mapDispatchToProps = {
 	setAnswer: answer => ({
 		type: SET_ANSWER,
 		answer
-  }),
-  setCurrentId: id => ({
-    type: SET_CURRENT_ID,
-    id
-  })
+	}),
+	prevQuestion: () => ({
+		type: SET_PREV_ID
+	}),
+	nextQuestion: () => ({
+		type: SET_NEXT_ID
+	})
 };
 
 const QuestionContainer = connect(mapStateToProps, mapDispatchToProps)(

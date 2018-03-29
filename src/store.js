@@ -5,7 +5,7 @@ import reducers from "./reducers";
 const questions = require("./questions.json");
 
 const initalData = {
-	currentId: 2,
+	currentId: 0,
 	answers: [
 		{
 			id: 1,
